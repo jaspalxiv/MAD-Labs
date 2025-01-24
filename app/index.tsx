@@ -2,14 +2,16 @@
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import Fruit from '../components/fruits';
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <Text>Yoy may Press</Text>
+            <Text>Welcome to Heaven!!!</Text>
             <TouchableOpacity style={styles.button} onPress={() => Alert.alert("Realy", "Nuke, you should not have press")}>
                 <Text>Press me</Text>
             </TouchableOpacity>
+            <Fruit />
             <StatusBar style="auto" />
         </View>
     );
