@@ -1,21 +1,43 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
-export default function basket() {
+export default function Basket() {
+    const router = useRouter();
+
+    // Default values for color and width, replace these with actual logic or props
+    const color = "blue";
+    const width = 100;
+
     return (
         <View style={styles.container}>
             <View style={styles.listItem}>
                 <Text style={styles.bullet}>{'\u2022'}</Text>
-                <Text style={styles.item}>Apple</Text>
+                <TouchableOpacity
+                    style={[styles.button, { backgroundColor: color, width: width }]}
+                    onPress={() => router.push("./apple")}
+                >
+                    <Text style={styles.buttonText}>Apple</Text>
+                </TouchableOpacity>
             </View>
 
             <View style={styles.listItem}>
                 <Text style={styles.bullet}>{'\u2022'}</Text>
-                <Text style={styles.item}>Orange</Text>
+                <TouchableOpacity
+                    style={[styles.button, { backgroundColor: color, width: width }]}
+                    onPress={() => router.push("./orange")}
+                >
+                    <Text style={styles.buttonText}>Orange</Text>
+                </TouchableOpacity>
             </View>
 
             <View style={styles.listItem}>
                 <Text style={styles.bullet}>{'\u2022'}</Text>
-                <Text style={styles.item}>Mango</Text>
+                <TouchableOpacity
+                    style={[styles.button, { backgroundColor: color, width: width }]}
+                    onPress={() => router.push("./mango")}
+                >
+                    <Text style={styles.buttonText}>Mango</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -33,10 +55,17 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginRight: 8,
     },
-    itemText: {
+    item: {
         fontSize: 16,
     },
-
-
-
+    button: {
+        padding: 10,
+        borderRadius: 5,
+        alignItems: "center",
+        margin: 10,
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
+    },
 });
